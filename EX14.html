@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício - Locadora de Carros</title>
+</head>
+<body>
+    <h1>Exercício 14: Locadora de Carros</h1>
+    <p>Escreva um programa que pergunte a quantidade de KM percorridos por um carro alugado. Calcule o preço total a pagar sabendo que o carro custa R$90 por dia e R$0.20 por KM rodado.</p>
+    
+    <label for="dias">Digite a quantidade de dias alugados:</label>
+    <input type="number" id="dias" placeholder="Quantidade de dias" min="0">
+    
+    <label for="km">Digite a quantidade de KM rodados:</label>
+    <input type="number" id="km" placeholder="Quantidade de KM" min="0">
+    
+    <button onclick="calcularValorLocacao()">Calcular Valor Total</button>
+    
+    <p id="resultado" style="display: none;"></p>
+
+    <script>
+        function calcularValorLocacao() {
+            let dias = parseFloat(document.getElementById("dias").value);
+            let km = parseFloat(document.getElementById("km").value);
+            let resultado = document.getElementById("resultado");
+
+            if (!isNaN(dias) && !isNaN(km) && dias >= 0 && km >= 0) {
+                let custoDiarias = dias * 90;
+                let custoKm = km * 0.20;
+                let total = custoDiarias + custoKm;
+
+                resultado.textContent = `O cliente alugou o carro por ${dias} dias, com o custo de R$90 por dia.\n`;
+                resultado.textContent += `O cliente rodou ${km} KM, com o custo de R$0.20 por KM.\n`;
+                resultado.textContent += `O valor total a ser pago é R$${total.toFixed(2)} (R$${custoDiarias.toFixed(2)} pelas diárias e R$${custoKm.toFixed(2)} pela quilometragem).`;
+                resultado.style.display = "block";
+            } else {
+                alert("Por favor, insira valores válidos para os dias e a quilometragem.");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício - Soma de Dois Números</title>
+</head>
+<body>
+    <h1>Exercício 4: Soma de Dois Números</h1>
+    <p>Crie um programa que leia dois números inteiros e mostre o somatório entre eles.</p>
+    
+    <label for="numero1">Digite um valor:</label>
+    <input type="number" id="numero1" placeholder="Digite um número">
+    
+    <label for="numero2">Digite outro valor:</label>
+    <input type="number" id="numero2" placeholder="Digite outro número">
+    
+    <button onclick="calcularSoma()">Somar</button>
+    
+    <p id="resultado" style="display: none;"></p>
+
+    <script>
+        function calcularSoma() {
+            let numero1 = document.getElementById("numero1").value;
+            let numero2 = document.getElementById("numero2").value;
+            let resultado = document.getElementById("resultado");
+            
+            if (numero1.trim() !== "" && numero2.trim() !== "") {
+                let soma = parseInt(numero1) + parseInt(numero2);
+                resultado.textContent = "A soma entre " + numero1 + " e " + numero2 + " é igual a " + soma + ".";
+                resultado.style.display = "block";
+            } else {
+                alert("Por favor, preencha ambos os números.");
+            }
+        }
+    </script>
+</body>
+</html>

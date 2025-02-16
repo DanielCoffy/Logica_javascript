@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio - Redução de Tempo de Vida</title>
+</head>
+<body>
+    <h1>Desafio: Redução de Tempo de Vida de um Fumante</h1>
+    <p>Crie um programa para calcular a redução de tempo de um fumante. Considere que o fumante perde 10 minutos de vida a cada cigarro. Calcule quantos dias de vida ele perderá e exiba na tela.</p>
+    
+    <label for="cigarros">Digite quantos cigarros fuma por dia:</label>
+    <input type="number" id="cigarros" placeholder="Quantidade de cigarros por dia" min="0">
+    
+    <label for="anos">Digite quantos anos fuma:</label>
+    <input type="number" id="anos" placeholder="Quantidade de anos fumando" min="0">
+    
+    <button onclick="calcularPerdaDeVida()">Calcular Perda de Vida</button>
+    
+    <p id="resultado" style="display: none;"></p>
+
+    <script>
+        function calcularPerdaDeVida() {
+            let cigarosPorDia = parseFloat(document.getElementById("cigarros").value);
+            let anosFumando = parseFloat(document.getElementById("anos").value);
+            let resultado = document.getElementById("resultado");
+
+            if (!isNaN(cigarosPorDia) && cigarosPorDia >= 0 && !isNaN(anosFumando) && anosFumando >= 0) {
+                // Cálculo de dias perdidos
+                let diasPerdidos = (((cigarosPorDia * 10) / 60) * 365) * anosFumando / 24;
+                resultado.textContent = `Com ${cigarosPorDia} cigarros fumados por dia durante ${anosFumando} anos, você perderá aproximadamente ${diasPerdidos.toFixed(2)} dias de vida.`;
+                resultado.style.display = "block";
+            } else {
+                alert("Por favor, insira valores válidos para a quantidade de cigarros e anos.");
+            }
+        }
+    </script>
+</body>
+</html>

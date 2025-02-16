@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício - Dobro e Terça Parte</title>
+</head>
+<body>
+    <h1>Exercício 7: Dobro e Terça Parte</h1>
+    <p>Crie um programa que leia um número real e mostre na tela seu dobro e a terça parte.</p>
+    
+    <label for="numero">Digite um número:</label>
+    <input type="number" id="numero" step="any" placeholder="Digite um número">
+    
+    <button onclick="calcularDobroEtercaParte()">Calcular</button>
+    
+    <p id="resultado" style="display: none;"></p>
+
+    <script>
+        function calcularDobroEtercaParte() {
+            let numero = document.getElementById("numero").value;
+            let resultado = document.getElementById("resultado");
+            
+            if (numero.trim() !== "") {
+                let num = parseFloat(numero);
+                let dobro = num * 2;
+                let terçaParte = num / 3;
+                resultado.textContent = "O dobro de " + num + " é " + dobro.toFixed(1) + ".\nA terça parte de " + num + " é " + terçaParte.toFixed(1) + ".";
+                resultado.style.display = "block";
+            } else {
+                alert("Por favor, insira um número.");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício - Equação de Segundo Grau</title>
+</head>
+<body>
+    <h1>Exercício 11: Equação de Segundo Grau</h1>
+    <p>Desenvolva uma lógica que leia os valores A, B e C de uma equação de segundo grau e mostre o valor do Delta.</p>
+    
+    <label for="a">Digite o valor de A:</label>
+    <input type="number" id="a" step="any" placeholder="Valor de A">
+    
+    <label for="b">Digite o valor de B:</label>
+    <input type="number" id="b" step="any" placeholder="Valor de B">
+    
+    <label for="c">Digite o valor de C:</label>
+    <input type="number" id="c" step="any" placeholder="Valor de C">
+    
+    <button onclick="calcularDelta()">Calcular Delta</button>
+    
+    <p id="resultado" style="display: none;"></p>
+
+    <script>
+        function calcularDelta() {
+            let a = parseFloat(document.getElementById("a").value);
+            let b = parseFloat(document.getElementById("b").value);
+            let c = parseFloat(document.getElementById("c").value);
+            let resultado = document.getElementById("resultado");
+
+            if (!isNaN(a) && !isNaN(b) && !isNaN(c)) {
+                let delta = b * b - 4 * a * c;
+
+                if (delta < 0) {
+                    resultado.textContent = `DELTA = ${delta.toFixed(2)}\nNão possui raízes reais.`;
+                } else if (delta === 0) {
+                    let x1 = -b / (2 * a);
+                    resultado.textContent = `DELTA = ${delta.toFixed(2)}\nRaiz única: x' = ${x1.toFixed(2)}`;
+                } else {
+                    let x1 = (-b - Math.sqrt(delta)) / (2 * a);
+                    let x2 = (-b + Math.sqrt(delta)) / (2 * a);
+                    resultado.textContent = `DELTA = ${delta.toFixed(2)}\nRaízes: x' = ${x1.toFixed(2)}, x'' = ${x2.toFixed(2)}`;
+                }
+                resultado.style.display = "block";
+            } else {
+                alert("Por favor, insira valores válidos para A, B e C.");
+            }
+        }
+    </script>
+</body>
+</html>
